@@ -1,0 +1,36 @@
+<form #registerForm="ngForm" (ngSubmit)="Submit(registerForm)">
+    <div class="form-group">
+        <label for="email">Name:</label>
+        <input type="text" class="form-control" placeholder="Enter name" required name="name" [(ngModel)]="form.name">
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+<div *ngIf="successDelMessage" class="login-validation successDelMessage">{{successDelMessage}}</div>
+<div *ngIf="success_message" class="success_message login-validation">{{success_message}}</div>
+
+<table class="table table-striped table-bordered table-sm row-border hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let list of todo_list;let i = index">
+            <td>{{i+1}}</td>
+            <td>{{list.name}}</td>
+
+            <td>
+                <div class="fa-hover col-md-3 col-sm-3 col-xs-12">
+                    <a (click)="deleteRow(list._id)">delete</a>
+                </div>
+
+
+            </td>
+        </tr>
+
+
+    </tbody>
+</table>

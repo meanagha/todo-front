@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Register</h2>
+    <form #registerForm="ngForm" (ngSubmit)="Submit(registerForm)">
+
+        <div *ngIf="error_message" class="login-validation error_message">{{error_message}}</div>
+        <div *ngIf="success_message" class="success_message login-validation">{{success_message}}</div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required name="username" [(ngModel)]="form.username"
+                #email="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" placeholder="Enter password" id="password" name="password"
+                [(ngModel)]="form.password" #password="ngModel">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Confirm Password:</label>
+            <input type="password" class="form-control" placeholder="Enter password" id="confirm_password" required
+                name="cpassword" [(ngModel)]="form.cpassword" #confirm_password="ngModel">
+        </div>
+        <div>
+            <label>Already Have Account ? <a [routerLink]="['/login']">Login Here</a></label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
